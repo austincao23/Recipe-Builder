@@ -1,0 +1,60 @@
+html {
+  background-color: #fefbea;
+
+  height: 100%;
+}
+
+body {
+  background-color: red;
+  top: 40%;
+  height: 60%;
+  width: 50%;
+  margin: auto;
+}
+
+img {
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: blue;
+  position: absolute;
+}
+
+h1 {
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  text-align: center;
+  font-family: "Brush Script MT", "Brush Script Std", cursive;
+  font-size: 40px;
+}
+
+#page {
+  background-color: white;
+  top: 70%;
+}
+
+.ingredients {
+  background-color: pink;
+  width: 20%;
+  position: absolute;
+  left: auto;
+}
+.directions {
+  background-color: orange;
+  width: 40%;
+  position: relative;
+  flex: wrap;
+  left: 60%;
+}
+.menubutton {
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+}
+.menubutton:hover {
+  background-color: orange;
+  color: white;
+}

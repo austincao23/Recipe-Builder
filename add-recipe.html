@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="add.css" text="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Oxygen:wght@700&display=swap" rel="stylesheet" />
+  <head>
+    <title>Flavor Finesse</title>
+  </head>
+  <body class="wrap">
+    <div class="navbar">
+      <a class="active">Flavor Finesse</a>
+    </div>
+    <h1>Add A New Recipe</h1>
+    <div class="content">
+      <form id="recipe-form">
+        <label for="recipe-name">Recipe Name:</label>
+        <input type="text" id="recipe-name" required />
+
+        <label for="picture-image">Recipe Image Link:</label>
+        <input type="text" id="picture-image" required />
+
+        <label for="ingredients">Ingredients:</label>
+        <div id="ingredient-list">
+          <div class="ingredient-item">
+            <input type="text" class="ingredient" required />
+            <!-- <button class="negative" type="button" class="remove-ingredient">-</button> -->
+            <button class="positive" type="button" id="add-ingredient">+</button>
+          </div>
+        </div>
+
+        <label for="directions">Directions:</label>
+        <div id="direction-list">
+          <div class="direction-item">
+            <input type="text" class="direction" required />
+            <!-- <button class="negative" type="button" class="remove-direction">-</button> -->
+            <button class="positive" type="button" id="add-direction">+</button>
+          </div>
+        </div>
+
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+</html>

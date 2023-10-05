@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="view.css" text="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Oxygen:wght@700&display=swap" rel="stylesheet">
+    <head>
+        <title>View-Recipe</title>
+    </head>
+
+    <body>
+        <img id='recipe-picture', src="https://picsum.photos/500" alt="">
+        <h1 id="recipe-title">Add The Recipe Name Here</h1>
+        <div class="row">
+            <div class="column" id="colIng">
+                <p id="ingredients">
+                    INGREDIENTS:
+                </p>
+            
+                <ul id="ingredientList" class="lists">
+                    
+                </ul>
+            </div>
+
+            <div class= "column" id="colDir">
+                <p id="directions">
+                    DIRECTIONS:
+                </p>
+                <ol id="directionsList" class="lists">
+                
+                </ol>
+            </div>            
+        </div>
+        <button class = "menubutton" type = "button" id = "return--" onclick="returnToAdd()">
+           return to menu
+        </button>
+    </body>
+
+    <script>
+        // Retrieve recipe data from the localStorage
+        const recipe = JSON.parse(localStorage.getItem('recipe'));
+        console.log(recipe);
+
+        
+        // Display recipe data on the page
+        document.getElementById('recipe-picture').src = recipe.pictureImage;
+        
+        
+        document.getElementById('recipe-title').innerText = recipe.recipeName;
+
+        const ingredientsList = document.getElementById("ingredientList");
+        for (i = 0; i < recipe.ingredients.length; i++) {
+          const ingredient = document.createElement("li");
+          ingredient.textContent = recipe.ingredients[i];
+          ingredientsList.appendChild(ingredient);
+        }
+
+
+        const directionsList = document.getElementById("directionsList");
+        for (i = 0; i < recipe.directions.length; i++) {
+          const direction = document.createElement("li");
+          direction.textContent = recipe.directions[i];
+          directionsList.appendChild(direction);
+        }
+
+        function returnToAdd(){
+            window.location.href="add-recipe.html";
+        }
+
+    </script>
+</html>
+
+
+    <!-- <style> 
+        <head>
+    <title>View Recipe</title>
+</head>
+<body>
+    <rectangle>Recipe Details</rectangle>
+    <div>
+        <h2 id="recipe-title"></h2>
+        <img id="recipe-picture" src="https://picsum.photos/500" alt="Recipe Picture">
+    </div>
+    <div>
+        <h3>Ingredients:</h3>
+        <ul id="recipe-ingredients"></ul>
+    </div>
+    <div>
+        <h3>Directions:</h3>
+        <ol id="recipe-directions"></ol>
+    </div>
+    <a href="add-recipe.html">Back to Menu</a>
+        html{
+            background-color: #fbf7f5;
+
+        }
+        body {
+            font-family:'Brush Script MT', 'Brush Script Std', cursive;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        rectangle {
+            width:200px;
+            height:300px;
+            background-color:white;
+            position:absolute;
+            
+            top:60%;
+            justify-content: center;
+            transform:translate(-50%,-50%);
+            text-size-adjust: 100px;
+        }
+        h1 {
+            background-color: whitesmoke;
+                font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+                font-size: xx-large;
+                text-align: center;        
+            }
+         h3
+            {color:  gray;
+                font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+                font-size: x-large;
+                text-align: left;     
+             }
+        img {
+            float: left
+        
+                margin-right:80%;
+                width: 300px;
+                height: 300px;
+                border-radius: 100%;
+                overflow: hidden;
+                background-color: blue;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+
+
+
+
+
+         

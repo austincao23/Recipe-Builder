@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="">Recipe Menu</h1>
+    <div id="recipe-list"></div>
+    <a href="add-recipe.html">+</a>
+    <button type="button" onclick="clearLocalStorage()">Delete All Recipes</button>
+  </body>
+  <script defer>
+    window.onload = resetStage();
+
+    function resetStage() {
+      const JSONArray = localStorage.getItem("recipeList");
+
+      const recipeList = JSON.parse(JSONArray);
+      console.log(recipeList.length);
+
+      let cardContainer = document.getElementById("recipe-list");
+
+      recipeList.forEach((item) => {
+        //div
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        //name
+        const title = document.createElement("h2");
+        title.textContent = item.recipeName;
+
+        //image
+        const img = document.createElement("img");
+        img.src = item.pictureImage;
+        img.alt = "Card Image";
+
+        //button
+        const button = document.createElement("button");
+        button.id = "view more";
+        button.innerText = "view-more";
+
+        //ingredients
+        const ingredientsList = document.createElement("ul");
+        for (i = 0; i < item.ingredients.length; i++) {
+          const ingredient = document.createElement("li");
+          ingredient.textContent = item.ingredients[i];
+          ingredientsList.appendChild(ingredient);
+        }
+
+        //directions
+        const directionsList = document.createElement("ol");
+        for (i = 0; i < item.directions.length; i++) {
+          const direction = document.createElement("li");
+          direction.textContent = item.directions[i];
+          directionsList.appendChild(direction);
+        }
+
+        card.appendChild(title);
+        card.appendChild(img);
+        card.appendChild(ingredientsList);
+        card.appendChild(directionsList);
+        card.appendChild(button);
+
+        cardContainer.appendChild(card);
+      });
+    }
+    listener = document.getElementById("view-more").addEventListener("click", function () {
+      console.log("hello world");
+    });
+
+    function clearLocalStorage() {
+      localStorage.clear("recipeList");
+      console.log(localStorage.getItem("recipeList"));
+      location.reload();
+    }
+  </script>
+</html>
